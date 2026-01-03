@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema MS</title>
+  <link rel="stylesheet" href="stylesis.css">
+</head>
+<body>
+  <header>
+    <h1>🛒 Sistema Mercado solidário</h1>
+  </header>
+
+  <main>
+    <section id="cadastro">
+      <h2>Cadastrar Produto</h2>
+      <form id="formProduto">
+        <input type="text" id="codigo" placeholder="Código de Barras" required>
+        <input type="text" id="nome" placeholder="Nome do Produto" required>
+        <input type="number" id="preco" placeholder="Preço (R$)" step="0.01" required>
+        <input type="number" id="peso" placeholder ="Peso (Kg)" step="0.01" required>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </section>
+
+    <section id="buscar">
+      <h2>Buscar Produto</h2>
+      <input type="text" id="buscarCodigo" placeholder="Digite o código de barras">
+      <input type="number" id="quantidadeBusca" placeholder="Quantidade" min="1">
+      <button id="btnBuscar">Buscar</button>
+      <div id="resultadoBusca"></div>
+    </section>
+
+    <section id="estoque">
+      <h2>Produtos em Estoque</h2>
+      <table id="tabelaEstoque">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>Preço (R$)</th>
+            <th>Peso(Kg)</th>
+            <th>Quantidade</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="Total-grid" id="totaisEstoque"></div>
+    </section>
+  </main>
+
+  <script type ="module"src="js/script.js"></script>
+</body>
+</html>
+

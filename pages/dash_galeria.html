@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Dashboard - Galeria</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MS - DASHBOARD</h2>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="../dashboard.html">Home</a></li>
+                    <li><a href="dash_galeria.html" class="active">Galeria</a></li>
+                    <li><a href="dash_meta.html">Metas</a></li>
+                    <li><a href="dash_voluntarios.html">Voluntários</a></li>}],path:
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>MS - DASHBOARD</h1>
+                <div class="header-actions">
+                    <button class="btn btn-success" onclick="abrirModalAdicionar()">
+                        + Adicionar
+                    </button>
+                    <button class="btn btn-danger" onclick="removerSelecionadas()" id="btnRemover" style="display: none;">
+                        Remover Selecionadas
+                    </button>
+                </div>
+            </header>
+
+            <!-- Container de Galeria -->
+            <div id="galeriaContainer"></div>
+        </main>
+    </div>
+
+    <!-- Modal Adicionar Imagem -->
+    <div id="modalAdicionar" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Adicionar Imagem</h2>
+                <button class="modal-close" onclick="fecharModal('modalAdicionar')">&times;</button>
+            </div>
+            <form id="formAdicionar" onsubmit="adicionarImagem(event)">
+                <div class="form-group">
+                    <label class="form-label">Upload de Imagem</label>
+                    <input type="file" id="inputImagem" class="form-control" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Categoria</label>
+                    <select id="selectCategoria" class="form-control" required>
+                        <option value="">Selecione uma categoria</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Nova Categoria</label>
+                    <input type="text" id="inputNovaCategoria" class="form-control" placeholder="Ex: 2026">
+                </div>
+                <div class="flex gap-10 mt-20">
+                    <button type="submit" class="btn btn-success">Adicionar</button>
+                    <button type="button" class="btn btn-secondary" onclick="fecharModal('modalAdicionar')">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/galeria.js"></script>
+</body>
+</html>

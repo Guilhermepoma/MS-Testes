@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #0077ff;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  background: #0077ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #0077ff;
+  color: white;
+}
+
+tr:hover {
+  background: #f0f8ff;
+}
+
+#resultadoBusca {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.mercado-main{
+   max-width: 800px;
+   margin: 0 auto;
+}
+
+.mercado-section{
+  background-color: white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mercado-form{
+  display: flex;
+  gap:10px;
+  margin-bottom: 20px;
+}
+
+.folders-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap:20px;
+  margin-top: 20px;
+}
+
+.folder-card{
+  background: #f8fafc;
+  padding:20px;
+  border-radius: 12px;
+  border:1px solid #307fda;
+  text-align: center;
+  cursor:pointer;
+  transition:0.25s;
+}
+.folder-card:hover{
+   transform: translateY(-5px);
+   background: #eef6ff;
+   border-color: #0077ff;
+   box-shadow:0 4px 15px rgba(0, 0, 0, 0.1) ;
+}
+
+.folder-name{
+  font-size:17px;
+  font-weight:600;
+  color:#333;
+}
+.empty {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  color: #777;
+}
+
+.Total-grid{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  padding: 20px;
+  font-size:17px;
+  font-weight:600;
+  color:#333;
+}
+
+b{
+  justify-content: center;
+  align-content: center;
+  
+}

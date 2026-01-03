@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Dashboard - Voluntários</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MS - DASHBOARD</h2>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="../dashboard.html">Home</a></li>
+                    <li><a href="dash_galeria.html">Galeria</a></li>
+                    <li><a href="dash_meta.html">Metas</a></li>
+                    <li><a href="dash_voluntarios.html" class="active">Voluntários</a></li>}],path:
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>MS - DASHBOARD</h1>
+                <div class="header-actions">
+                    <button class="btn btn-success" onclick="abrirModalAdicionar()">
+                        + Adicionar Voluntário
+                    </button>
+                    <button class="btn btn-secondary" onclick="importarCSV()">
+                        Importar CSV
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportarCSV()">
+                        Exportar CSV
+                    </button>
+                    <button class="btn btn-danger" onclick="removerSelecionados()" id="btnRemover" style="display: none;">
+                        Remover Selecionados
+                    </button>
+                </div>
+            </header>
+
+            <!-- Lista de Voluntários -->
+            <div class="volunteers-list" id="voluntariosList"></div>
+        </main>
+    </div>
+
+    <!-- Modal Adicionar/Editar Voluntário -->
+    <div id="modalVoluntario" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitulo">Adicionar Voluntário</h2>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+            <form id="formVoluntario" onsubmit="salvarVoluntario(event)">
+                <input type="hidden" id="voluntarioId">
+                <div class="form-group">
+                    <label class="form-label">Nome Completo</label>
+                    <input type="text" id="voluntarioNome" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Foto (Upload)</label>
+                    <input type="file" id="voluntarioFotoFile" class="form-control" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">URL da Foto (alternativo)</label>
+                    <input type="text" id="voluntarioFoto" class="form-control" placeholder="assets/images/avatar.jpg">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ano de Participação</label>
+                    <input type="number" id="voluntarioAno" class="form-control" min="2000" max="2100" required>
+                </div>
+                <div class="flex gap-10 mt-20">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-secondary" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Input oculto para importar CSV -->
+    <input type="file" id="inputCSV" accept=".csv" style="display: none;" onchange="processarImportacao()">
+
+    <script src="../assets/js/voluntarios.js"></script>
+</body>
+</html>

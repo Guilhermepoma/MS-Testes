@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Dashboard - Metas</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>MS - DASHBOARD</h2>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="../dashboard.html">Home</a></li>
+                    <li><a href="dash_galeria.html">Galeria</a></li>
+                    <li><a href="dash_meta.html" class="active">Metas</a></li>
+                    <li><a href="dash_voluntarios.html">Voluntários</a></li>}],path:
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Conteúdo Principal -->
+        <main class="main-content">
+            <header class="page-header">
+                <h1>MS - DASHBOARD</h1>
+                <div class="header-actions">
+                    <button class="btn btn-success" onclick="abrirModalAdicionar()">
+                        + Adicionar Meta
+                    </button>
+                </div>
+            </header>
+
+            <!-- Gráficos de Pizza -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px;">
+                <!-- Gráfico Toneladas -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Toneladas Arrecadadas por Ano</h2>
+                        <button class="btn btn-secondary" onclick="editarDados('toneladas')">
+                            Editar
+                        </button>
+                    </div>
+                    <div class="chart-wrapper" style="height: 350px;">
+                        <canvas id="graficoToneladas"></canvas>
+                    </div>
+                </div>
+
+                <!-- Gráfico Voluntários -->
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2 class="chart-title">Número de Voluntários por Ano</h2>
+                        <button class="btn btn-secondary" onclick="editarDados('voluntarios')">
+                            Editar
+                        </button>
+                    </div>
+                    <div class="chart-wrapper" style="height: 350px;">
+                        <canvas id="graficoVoluntarios"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabelas de Dados -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 30px;">
+                <!-- Tabela Toneladas -->
+                <div class="chart-container">
+                    <h3 class="chart-title" style="margin-bottom: 20px;">Dados de Toneladas</h3>
+                    <div id="tabelaToneladas"></div>
+                </div>
+
+                <!-- Tabela Voluntários -->
+                <div class="chart-container">
+                    <h3 class="chart-title" style="margin-bottom: 20px;">Dados de Voluntários</h3>
+                    <div id="tabelaVoluntarios"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Adicionar/Editar -->
+    <div id="modalMeta" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitulo">Adicionar Meta</h2>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+            <form id="formMeta" onsubmit="salvarMeta(event)">
+                <input type="hidden" id="metaId">
+                <div class="form-group">
+                    <label class="form-label">Tipo</label>
+                    <select id="metaTipo" class="form-control" required>
+                        <option value="toneladas">Toneladas Arrecadadas</option>
+                        <option value="voluntarios">Número de Voluntários</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Ano</label>
+                    <input type="number" id="metaAno" class="form-control" min="2000" max="2100" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Valor</label>
+                    <input type="number" id="metaValor" class="form-control" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Cor (Hexadecimal)</label>
+                    <input type="color" id="metaCor" class="form-control" value="#034794">
+                </div>
+                <div class="flex gap-10 mt-20">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="button" class="btn btn-secondary" onclick="fecharModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/metas.js"></script>
+</body>
+</html>
