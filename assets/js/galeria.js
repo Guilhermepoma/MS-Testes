@@ -65,7 +65,7 @@ function criarItemGaleria(imagem) {
                    onchange="toggleSelecao(${imagem.id})">
             <img src="../${imagem.url_imagem}" 
                  alt="Imagem ${imagem.id}"
-                 onerror="this.src='../assets/images/dashboard_imgs/placeholder.jpg'">
+                 onerror="this.onerror=null; this.src='../assets/images/dashboard_imgs/placeholder1.jpg'">
             <div class="gallery-item-overlay">
                 <button class="btn btn-danger" onclick="removerImagem(${imagem.id})">
                     Remover

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MS Dashboard - Voluntários</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/dash_animations.css">
 </head>
+
 <body>
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -17,7 +19,7 @@
             </div>
             <nav>
                 <ul class="sidebar-nav">
-                    <li><a href="../dashboard.html">Home</a></li>
+                    <li><a href="../private/dashboard.html">Home</a></li>
                     <li><a href="dash_galeria.html">Galeria</a></li>
                     <li><a href="dash_meta.html">Metas</a></li>
                     <li><a href="dash_voluntarios.html" class="active">Voluntários</a></li>}],path:
@@ -39,7 +41,8 @@
                     <button class="btn btn-secondary" onclick="exportarCSV()">
                         Exportar CSV
                     </button>
-                    <button class="btn btn-danger" onclick="removerSelecionados()" id="btnRemover" style="display: none;">
+                    <button class="btn btn-danger" onclick="removerSelecionados()" id="btnRemover"
+                        style="display: none;">
                         Remover Selecionados
                     </button>
                 </div>
@@ -88,4 +91,5 @@
 
     <script src="../assets/js/voluntarios.js"></script>
 </body>
+
 </html>
