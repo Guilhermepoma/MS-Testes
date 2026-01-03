@@ -34,12 +34,12 @@ CREATE TABLE IF NOT EXISTS imagens (
 
 -- Dados de exemplo para galeria
 INSERT INTO imagens (url_imagem, categoria) VALUES 
-('assets/images/placeholder1.jpg', '2025'),
-('assets/images/placeholder2.jpg', '2025'),
-('assets/images/placeholder3.jpg', '2025'),
-('assets/images/placeholder4.jpg', '2024'),
-('assets/images/placeholder5.jpg', '2024'),
-('assets/images/placeholder6.jpg', '2024');
+('assets/images/dashboard_imgs/placeholder1.jpg', '2025'),
+('assets/images/dashboard_imgs/placeholder2.jpg', '2025'),
+('assets/images/dashboard_imgs/placeholder3.jpg', '2025'),
+('assets/images/dashboard_imgs/placeholder4.jpg', '2024'),
+('assets/images/dashboard_imgs/placeholder5.jpg', '2024'),
+('assets/images/dashboard_imgs/placeholder6.jpg', '2024');
 
 -- ====================================
 -- TABELA: toneladas_ano (metas_db)

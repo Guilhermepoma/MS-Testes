@@ -9,15 +9,15 @@ let graficoGeral = null;
 // Carregar dados da API
 async function carregarDados() {
     try {
-        const response = await fetch('api/home.php');
+        const response = await fetch('../api/home.php');
         const result = await response.json();
-        
+
         if (result.success) {
             // Atualizar cards
             document.getElementById('totalKg').textContent = result.data.cards.total_kg;
             document.getElementById('totalVoluntarios').textContent = result.data.cards.total_voluntarios;
             document.getElementById('totalEdicoes').textContent = result.data.cards.total_edicoes;
-            
+
             // Criar gráfico
             criarGrafico(result.data.grafico);
         } else {
@@ -35,12 +35,12 @@ async function carregarDados() {
 // Criar gráfico com Chart.js
 function criarGrafico(dados) {
     const ctx = document.getElementById('graficoGeral').getContext('2d');
-    
+
     // Destruir gráfico anterior se existir
     if (graficoGeral) {
         graficoGeral.destroy();
     }
-    
+
     graficoGeral = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -69,7 +69,7 @@ function criarGrafico(dados) {
                     borderColor: '#f7d708',
                     borderWidth: 1,
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             return context.parsed.y + ' toneladas';
                         }
                     }
@@ -135,7 +135,7 @@ function usarDadosPadrao() {
             '#d11507'
         ]
     };
-    
+
     criarGrafico(dadosPadrao);
 }
 
@@ -143,6 +143,3 @@ function usarDadosPadrao() {
 document.addEventListener('DOMContentLoaded', () => {
     carregarDados();
 });
-
-// Recarregar dados a cada 30 segundos
-setInterval(carregarDados, 30000);

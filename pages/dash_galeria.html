@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MS Dashboard - Galeria</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="../assets/css/dash_animations.css">
 </head>
+
 <body>
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -17,7 +19,7 @@
             </div>
             <nav>
                 <ul class="sidebar-nav">
-                    <li><a href="../dashboard.html">Home</a></li>
+                    <li><a href="../private/dashboard.html">Home</a></li>
                     <li><a href="dash_galeria.html" class="active">Galeria</a></li>
                     <li><a href="dash_meta.html">Metas</a></li>
                     <li><a href="dash_voluntarios.html">Voluntários</a></li>}],path:
@@ -33,7 +35,8 @@
                     <button class="btn btn-success" onclick="abrirModalAdicionar()">
                         + Adicionar
                     </button>
-                    <button class="btn btn-danger" onclick="removerSelecionadas()" id="btnRemover" style="display: none;">
+                    <button class="btn btn-danger" onclick="removerSelecionadas()" id="btnRemover"
+                        style="display: none;">
                         Remover Selecionadas
                     </button>
                 </div>
@@ -58,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Categoria</label>
-                    <select id="selectCategoria" class="form-control" required>
+                    <select id="selectCategoria" class="form-control" >
                         <option value="">Selecione uma categoria</option>
                     </select>
                 </div>
@@ -68,7 +71,8 @@
                 </div>
                 <div class="flex gap-10 mt-20">
                     <button type="submit" class="btn btn-success">Adicionar</button>
-                    <button type="button" class="btn btn-secondary" onclick="fecharModal('modalAdicionar')">Cancelar</button>
+                    <button type="button" class="btn btn-secondary"
+                        onclick="fecharModal('modalAdicionar')">Cancelar</button>
                 </div>
             </form>
         </div>
@@ -76,4 +80,5 @@
 
     <script src="../assets/js/galeria.js"></script>
 </body>
+
 </html>

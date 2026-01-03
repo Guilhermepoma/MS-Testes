@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Galeria - Mercado Solidário</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="shortcut icon" href="assets/images/icon.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <div class="container">
@@ -31,6 +33,7 @@
       <a href="metas.html">METAS</a>
       <a href="galeria.html" class="active">GALERIA</a>
       <a href="contato.html">CONTATO</a>
+      <a href="private/login.html">SISTEMA</a>
     </nav>
   </div>
 
@@ -43,20 +46,20 @@
 
   <section class="galeria-content">
     <div class="container">
-	      <div class="galeria-wrapper">
-	        <!-- Conteúdo será carregado via JavaScript -->
-	      </div>
+      <div class="galeria-wrapper">
+        <!-- Conteúdo será carregado via JavaScript -->
+      </div>
     </div>
   </section>
 
-    <footer class="footer">
+  <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <div class="footer-section">
           <img src="assets/images/logo.jpg" alt="Logo Mercado Solidário" class="footer-logo">
           <p>Transformando vidas através da solidariedade em Criciúma</p>
         </div>
-        
+
         <div class="footer-section">
           <h4>Links Rápidos</h4>
           <ul>
@@ -66,7 +69,7 @@
             <li><a href="contato.html">Contato</a></li>
           </ul>
         </div>
-        
+
         <div class="footer-section">
           <h4>Redes Sociais</h4>
           <div class="social-links">
@@ -81,19 +84,20 @@
           </div>
         </div>
       </div>
-      
+
       <div class="footer-bottom">
         <p>&copy; 2025 Mercado Solidário. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
-  
+
   <!-- Modal para visualização das imagens -->
   <div id="imageModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
     <img id="modalImage" src="" alt="Imagem ampliada">
   </div>
 
-	  <script src="js/galeria_public.js"></script>
+  <script src="js/galeria_public.js"></script>
 </body>
+
 </html>

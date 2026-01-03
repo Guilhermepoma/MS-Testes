@@ -8,9 +8,10 @@ async function carregarDadosGaleria() {
     try {
         const response = await fetch('api/galeria.php');
         const result = await response.json();
-        
+
         if (result.success) {
-            renderizarGaleria(result.data);
+            // A API já retorna dados agrupados em galeria_agrupada
+            renderizarGaleria(result.data.galeria_agrupada);
         } else {
             console.error('Erro ao carregar dados da galeria:', result.message);
         }
@@ -19,35 +20,31 @@ async function carregarDadosGaleria() {
     }
 }
 
-// Renderiza a galeria agrupando por categoria
-function renderizarGaleria(dados) {
+// Renderiza a galeria agrupada por categoria
+function renderizarGaleria(galeriaAgrupada) {
     const galeriaWrapper = document.querySelector('.galeria-wrapper');
     galeriaWrapper.innerHTML = ''; // Limpa o conteúdo estático
-    
-    // Agrupar imagens por categoria
-    const categorias = dados.reduce((acc, item) => {
-        const categoria = item.categoria || 'Outros';
-        if (!acc[categoria]) {
-            acc[categoria] = [];
-        }
-        acc[categoria].push(item);
-        return acc;
-    }, {});
-    
+
+    if (Object.keys(galeriaAgrupada).length === 0) {
+        galeriaWrapper.innerHTML = '<p style="text-align: center; color: #666; padding: 40px;">Nenhuma imagem disponível no momento.</p>';
+        return;
+    }
+
     // Renderizar cada seção de categoria
-    for (const categoria in categorias) {
-        const imagens = categorias[categoria];
-        
+    for (const categoria in galeriaAgrupada) {
+        const imagens = galeriaAgrupada[categoria];
+
         const section = document.createElement('div');
         section.classList.add('galeria-section');
         section.innerHTML = `
             <h3>${categoria}</h3>
             <div class="galeria-grid">
                 ${imagens.map(item => `
-                    <div class="galeria-item" onclick="openModal('${item.caminho_imagem}')">
-                        <img src="${item.caminho_imagem}" alt="${item.descricao || 'Imagem da Galeria'}">
+                    <div class="galeria-item" onclick="openModal('${item.url_imagem}')">
+                        <img src="${item.url_imagem}" alt="Imagem da Galeria ${categoria}" 
+                             onerror="this.onerror=null; this.src='assets/images/dashboard_imgs/placeholder1.jpg'">
                         <div class="galeria-overlay">
-                            <span class="galeria-title">${item.descricao || categoria}</span>
+                            <span class="galeria-title">${categoria}</span>
                             <span class="galeria-desc">Adicionada em ${new Date(item.data_upload).toLocaleDateString('pt-BR')}</span>
                         </div>
                     </div>
@@ -73,7 +70,7 @@ function closeModal() {
     document.body.style.overflow = 'auto';
 }
 
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
         closeModal();
     }

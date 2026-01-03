@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercados</title>
-    <link rel="stylesheet" href="stylesis.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercados</title>
+  <link rel="stylesheet" href="../assets/css/stylesis.css">
 </head>
+
 <body>
-    <main class ="mercado-main">
-      <section class = "mercado-section">
-        
-        <h2>Crie a sua nova pasta</h2>
+  <main class="mercado-main">
+    <section class="mercado-section">
 
-          <form id="form" class ="mercado-form">
-            <input id="folderName" type="text" placeholder="Nome da nova pasta" required>
-            <button type="submit">Criar</button>
-          </form>
-        
-          <h2>Pastas existentes</h2>
-          
-          <div id="foldersContainer" class="folders-grid"></div>
+      <h2>Crie a sua nova pasta</h2>
 
-          <div id="empty" class="empty">Nenhuma pasta encontrada.</div>
-      </section>
-    </main>
+      <form id="form" class="mercado-form">
+        <input id="folderName" type="text" placeholder="Nome da nova pasta" required>
+        <button type="submit">Criar</button>
+      </form>
 
-    <script type="module" src="js/pasta.js"></script>
+      <h2>Pastas existentes</h2>
+
+      <div id="foldersContainer" class="folders-grid"></div>
+
+      <div id="empty" class="empty">Nenhuma pasta encontrada.</div>
+    </section>
+  </main>
+
+  <script type="module" src="../js/pasta.js"></script>
 </body>
-</html>
 
+</html>
