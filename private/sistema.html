@@ -6,13 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sistema MS</title>
   <link rel="stylesheet" href="../assets/css/stylesis.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=menu" />
 </head>
-
-<body>
   <header>
-    <h1>🛒 Sistema Mercado solidário</h1>
+    <h1>Sistema</h1>
+    <button class="material-symbols-outlined" id="btnMenu">
+menu
+    </button>
   </header>
-
+  <div class="side-wrapper" id="side-wrapper">
+    <div class="side-wrapper-header">
+      <button id="close">X</button>
+    </div>
+  
+    <ul class="menu">
+      <li><a href="Triagem.html">Triagem</a></li>
+    </ul>
+  </div>
+  <div class="overlay" id="overlay"></div>
   <main>
     <section id="cadastro">
       <h2>Cadastrar Produto</h2>
@@ -20,7 +31,7 @@
         <input type="text" id="codigo" placeholder="Código de Barras" required>
         <input type="text" id="nome" placeholder="Nome do Produto" required>
         <input type="number" id="preco" placeholder="Preço (R$)" step="0.01" required>
-        <input type="number" id="peso" placeholder="Peso (Kg)" step="0.01" required>
+        <input type="number" id="peso" placeholder ="Peso (Kg)" step="0.01" required>
         <button type="submit">Cadastrar</button>
       </form>
     </section>
@@ -51,7 +62,9 @@
     </section>
   </main>
 
-  <script type="module" src="../js/script.js"></script>
+  <script type ="module"src="js/script.js"></script>
+  <script type="module" src="js/sidebar.js"></script>
 </body>
-
 </html>
+
+
