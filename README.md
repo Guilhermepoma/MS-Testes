@@ -7,7 +7,7 @@ Uma plataforma para facilitar a solidariedade comunitária, conectando pessoas q
 - [Visão Geral](#visão-geral)  
 - [Funcionalidades](#funcionalidades)  
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Site Completo](https://guilhermepoma.github.io/Mercadosolidario/)
+- [Site Completo](https://guilhermepoma.github.io/MS-Testes/)
 
 ## Visão Geral
 
@@ -29,3 +29,4 @@ O **MercadoSolidario** é um projeto web que busca fomentar redes de ajuda mútu
 - Banco de dados: MySQL
 
 <img src="https://raw.githubusercontent.com/Guilhermepoma/Mercadosolidario/refs/heads/main/imgs/logo.jpg" style="display: block; width: auto; margin: 0 auto;">
+
