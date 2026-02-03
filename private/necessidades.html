@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Necessidades da Instituição</title>
+  <link rel="stylesheet" href="stylesis.css">
+</head>
+<body>
+
+  <h2 id="titulo"></h2>
+
+  <form id="formNecessidade">
+    <input id="produto" placeholder="Nome do produto" required>
+    <input id="quantidade" type="number" placeholder="Quantidade" required>
+    <button type="submit">Adicionar</button>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="listaNecessidades"></tbody>
+  </table>
+
+  <script type="module" src="js/necessidades.js"></script>
+</body>
+</html>

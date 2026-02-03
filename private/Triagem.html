@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Instituições</title>
+  <link rel="stylesheet" href="stylesis.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=menu" />
+</head>
+<body>
+
+<header>
+    <h1>Instituições</h1>
+    <button class="material-symbols-outlined" id="btnMenu">
+menu
+    </button>
+  </header>
+  <div class="side-wrapper" id="side-wrapper">
+    <div class="side-wrapper-header">
+      <button id="close">X</button>
+    </div>
+  
+    <ul class="menu">
+      <li><a href="Index.html">Página Inicial</a></li>
+      <li><a href="mercados.html">Mercados</a></li>
+   </ul>
+  </div>
+
+<main>
+
+  <section>
+    <form id="formInstituicao">
+      <input type="text" id="nomeInstituicao" placeholder="Nome da instituição" required>
+      <button type="submit">Cadastrar Instituição</button>
+    </form>
+  </section>
+
+  <section>
+    <h2> Instituições Cadastradas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Responsável</th>
+          <th>Telefone</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="listaInstituicoes"></tbody>
+    </table>
+  </section>
+
+</main>
+
+<script type="module" src="js/instituicoes.js"></script>
+<script type="module" src="js/sidebar.js"></script>
+</body>
+</html>
