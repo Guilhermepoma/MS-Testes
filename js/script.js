@@ -28,6 +28,48 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getDatabase(app);
 
+async function redistribuirAutomaticamente(produtoNome, quantidade, origem) {
+  const instituicoesRef = ref(db, "instituicoes");
+  const snap = await get(instituicoesRef);
+
+  if (!snap.exists()) return;
+
+  let restante = quantidade;
+
+  for (const [idInst, inst] of Object.entries(snap.val())) {
+    if (!inst.necessidades || restante <= 0) continue;
+
+    for (const [idNec, necessidade] of Object.entries(inst.necessidades)) {
+      if (restante <= 0) break;
+      if (necessidade.produto.toLowerCase() !== produtoNome.toLowerCase()) continue;
+
+      const qtdDistribuir = Math.min(restante, necessidade.quantidade);
+
+      // REGISTRA DISTRIBUIÇÃO
+      await push(ref(db, `instituicoes/${idInst}/distribuicao`), {
+        produto: produtoNome,
+        quantidade: qtdDistribuir,
+        origem,
+        data: new Date().toISOString()
+      });
+
+      const restanteNecessidade = necessidade.quantidade - qtdDistribuir;
+
+      // ATUALIZA OU REMOVE NECESSIDADE
+      if (restanteNecessidade <= 0) {
+        await remove(ref(db, `instituicoes/${idInst}/necessidades/${idNec}`));
+      } else {
+        await set(
+          ref(db, `instituicoes/${idInst}/necessidades/${idNec}/quantidade`),
+          restanteNecessidade
+        );
+      }
+
+      restante -= qtdDistribuir;
+    }
+  }
+}
+
 // === Aguarda DOM carregado ===
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -241,14 +283,11 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
           }
         }
-
+         
         if (!encontrado) {
           resultadoDiv.innerHTML = `<p style="color:red;">Produto não encontrado.</p>`;
           return;
         }
-
-        resultadoDiv.innerHTML =
-          `<p style="color:green;">Produto encontrado: ${encontrado.nome}</p>`;
 
         // Atualiza ou adiciona no estoque da pasta
         const snapshotEstoque = await get(pastaRef);
@@ -256,31 +295,54 @@ document.addEventListener("DOMContentLoaded", () => {
         let produtoExistenteKey = null;
 
         for (const key in estoque) {
-          if (estoque[key].codigo === codigoBusca) {
-            produtoExistenteKey = key;
-            break;
-          }
+        if (estoque[key].codigo === codigoBusca) {
+        produtoExistenteKey = key;
+        break;
+        }
         }
 
         if (produtoExistenteKey) {
           const novaQtd =
-            parseInt(estoque[produtoExistenteKey].quantidade || 0) + qtdBusca;
+          parseInt(estoque[produtoExistenteKey].quantidade || 0) + qtdBusca;
 
-          await set(ref(db, `folders/${folderID}/estoque/${produtoExistenteKey}`), {
-            ...estoque[produtoExistenteKey],
-            quantidade: novaQtd
-          });
+        await set(ref(db, `folders/${folderID}/estoque/${produtoExistenteKey}`), {
+        ...estoque[produtoExistenteKey],
+        quantidade: novaQtd
+        });
 
         } else {
           await push(pastaRef, {
-            codigo: encontrado.codigo,
-            nome: encontrado.nome,
-            preco: encontrado.preco,
-            peso: encontrado.peso,
-            quantidade: qtdBusca
-          });
+         codigo: encontrado.codigo,
+         nome: encontrado.nome,
+         preco: encontrado.preco,
+         peso: encontrado.peso,
+        quantidade: qtdBusca
+        });
         }
+      console.log("🚀 Chamando redistribuição:", encontrado.nome, qtdBusca);
 
+// ✅ A NOVA FUNÇÃO ENTRA EXATAMENTE AQUI
+       await redistribuirAutomaticamente(
+       encontrado.nome,
+       qtdBusca,
+       folderName
+       );
+
+resultadoDiv.innerHTML =
+  `<p style="color:green;">Produto encontrado: ${encontrado.nome}</p>`;
+carregarTabela();
+
+        
+        
+                
+          
+
+
+        resultadoDiv.innerHTML =
+          `<p style="color:green;">Produto encontrado: ${encontrado.nome}</p>`;
+
+        // Atualiza ou adiciona no estoque da pasta
+  
         carregarTabela();
 
       } catch (error) {
@@ -304,4 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 totalQuantidade +=qtd;
                 totalValor += preco*qtd;
           })}
+  
+ 
+  
 });
