@@ -64,27 +64,27 @@ onValue(instituicoesRef, (snapshot) => {
     tr.innerHTML = `
       <td>${inst.nome}</td>
       <td>
-          <button type ="button" class="btndistribuicao">Triagem</button>
-          <button type ="button" class="btnNecessidades">Necessidades</button>
-          <button type ="button" data-id="${id}" class="btnExcluir">Excluir</button>
+          <button type="button" class="btndistribuicao">Triagem</button>
+          <button type="button" class="btnNecessidades">Necessidades</button>
+          <button type="button" data-id="${id}" class="btnExcluir">Excluir</button>
       </td>
     `;
+    
+    // CORRIGIDO: caminho relativo correto
     tr.querySelector(".btndistribuicao").addEventListener("click", () => {
-      window.location.href = `../private/distribuicao?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
-      });
+      window.location.href = `distribuicao.html?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
+    });
+    
     tr.querySelector(".btnNecessidades").addEventListener("click", () => {
-      window.location.href = `../private/necessidades?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
-      });
+      window.location.href = `necessidades.html?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
+    });
 
     tr.querySelector(".btnExcluir").addEventListener("click", () => {
       if (confirm("Deseja excluir esta instituição?")) {
         remove(ref(db, "instituicoes/" + id));
       }
-    
     });
 
     lista.appendChild(tr);
   });
-
 });
-
