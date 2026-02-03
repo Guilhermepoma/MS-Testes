@@ -70,10 +70,10 @@ onValue(instituicoesRef, (snapshot) => {
       </td>
     `;
     tr.querySelector(".btndistribuicao").addEventListener("click", () => {
-      window.location.href = `private/distribuicao?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
+      window.location.href = `../private/distribuicao?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
       });
     tr.querySelector(".btnNecessidades").addEventListener("click", () => {
-      window.location.href = `private/necessidades?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
+      window.location.href = `../private/necessidades?id=${id}&nome=${encodeURIComponent(inst.nome)}`;
       });
 
     tr.querySelector(".btnExcluir").addEventListener("click", () => {
