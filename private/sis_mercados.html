@@ -6,28 +6,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mercados</title>
   <link rel="stylesheet" href="../assets/css/stylesis.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=menu" />
 </head>
 
-<body>
-  <main class="mercado-main">
-    <section class="mercado-section">
+<header>
+    <h1>Mercados</h1>
+    <button class="material-symbols-outlined" id="btnMenu">
+menu
+    </button>
+  </header>
+  <div class="side-wrapper" id="side-wrapper">
+    <div class="side-wrapper-header">
+      <button id="close">X</button>
+    </div>
+  
+    <ul class="menu">
+      <li><a href="Index.html">Página Inicial</a></li>
+      <li><a href="Triagem.html">Triagem</a></li>
+   </ul>
+  </div>
+  <div class="overlay" id="overlay"></div>
+    <main class ="mercado-main">
+      <section class = "mercado-section">
 
-      <h2>Crie a sua nova pasta</h2>
+          <form id="form" class ="mercado-form">
+            <input id="folderName" type="text" placeholder="Nome da nova pasta" required>
+            <button type="submit">Criar</button>
+          </form>
+        
+          <h2>Pastas existentes</h2>
+          
+          <div id="foldersContainer" class="folders-grid"></div>
 
-      <form id="form" class="mercado-form">
-        <input id="folderName" type="text" placeholder="Nome da nova pasta" required>
-        <button type="submit">Criar</button>
-      </form>
+          <div id="empty" class="empty">Nenhuma pasta encontrada.</div>
+      </section>
+    </main>
 
-      <h2>Pastas existentes</h2>
-
-      <div id="foldersContainer" class="folders-grid"></div>
-
-      <div id="empty" class="empty">Nenhuma pasta encontrada.</div>
-    </section>
-  </main>
-
-  <script type="module" src="../js/pasta.js"></script>
+    <script type="module" src="../js/pasta.js"></script>
+    <script type="module" src="../js/sidebar.js"></script>
 </body>
+</html>
+
+
 
 </html>
